@@ -33,7 +33,7 @@
       },
       init: function () {
         this.box;
-        this.target;
+        this.target = new THREE.Vector3();;
       },
       tick: function () {
         if (this.el.getObject3D('mesh') && !this.box) {
@@ -58,7 +58,7 @@
           });
         }
         if (this.box) {
-          this.target = this.data.target.object3D.getWorldPosition();
+          this.target.setFromMatrixPosition(this.data.target.object3D.matrixWorld);
           this.data.parent.setAttribute('position', {
             x: this.target.x,
             y: this.target.y,
