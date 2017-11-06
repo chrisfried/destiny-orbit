@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Destiny VR Orbit</title>
   <meta name="description" content="Destiny VR Orbit">
+  <script src="http://spin.js.org/spin.min.js"></script>
   <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
   <script>
     window.DESTINYMODELCONFIG = {
@@ -75,6 +76,7 @@
 </head>
 
 <body>
+  <div id="spinner" ></div>
   <a-scene inspector>
 
     <a-entity class="wrap" position="0 0 -.5">
@@ -89,7 +91,7 @@
       <a-entity light="intensity: 2; type: point; cast-shadow: true" position="0 0 -1"></a-entity>
     </a-entity>
   </a-scene>
-
+  
   <script>
     var url_string = window.location.href
     var url = new URL(url_string);
@@ -100,7 +102,38 @@
       game: game,
       itemHash: itemHash
     });
-    console.log(el)
+
+    // Spinner
+    var opts = {
+      lines: 7 // The number of lines to draw
+    , length: 21 // The length of each line
+    , width: 27 // The line thickness
+    , radius: 3 // The radius of the inner circle
+    , scale: 1 // Scales overall size of the spinner
+    , corners: 1 // Corner roundness (0..1)
+    , color: '#000' // #rgb or #rrggbb or array of colors
+    , opacity: 0.3 // Opacity of the lines
+    , rotate: 15 // The rotation offset
+    , direction: 1 // 1: clockwise, -1: counterclockwise
+    , speed: 1 // Rounds per second
+    , trail: 76 // Afterglow percentage
+    , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+    , zIndex: 2e9 // The z-index (defaults to 2000000000)
+    , className: 'spinner' // The CSS class to assign to the spinner
+    , top: '50%' // Top position relative to parent
+    , left: '50%' // Left position relative to parent
+    , shadow: false // Whether to render a shadow
+    , hwaccel: false // Whether to use hardware acceleration
+    , position: 'absolute' // Element positioning
+    }
+    var target = document.getElementById('spinner')
+    var spinner = new Spinner(opts).spin(target);;
+    THREE.DefaultLoadingManager = new THREE.LoadingManager();
+    var manager = THREE.DefaultLoadingManager;
+    manager.onProgress = function(url, count, total) {
+      if (url.indexOf('data:') === 0) return;
+      if (count == total) spinner.stop();
+    };
   </script>
 </body>
 
