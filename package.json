@@ -1,0 +1,22 @@
+{
+  "name": "destiny-orbit",
+  "description": "Destiny Orbit.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "live-server --port=3000",
+    "deploy": "ghpages"
+  },
+  "devDependencies": {
+    "ghpages": "^0.0.8",
+    "live-server": "^1.2.0"
+  },
+  "keywords": [
+    "aframe",
+    "aframe-example",
+    "aframe-boilerplate",
+    "aframe-scene",
+    "webvr",
+    "vr"
+  ]
+}
