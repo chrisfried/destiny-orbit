@@ -39,11 +39,8 @@
         if (this.el.getObject3D('mesh') && !this.box) {
           this.box = new THREE.Box3().setFromObject(this.el.getObject3D('mesh'));
           var scale = 1;
-          if (this.box.max.x - this.box.min.x > this.box.max.y - this.box.min.y) {
-            scale = scale / (this.box.max.x - this.box.min.x)
-          } else {
-            scale = scale / (this.box.max.y - this.box.min.y)
-          }
+          var longestSide = Math.max(this.box.max.x - this.box.min.x, this.box.max.y - this.box.min.y, this.box.max.z - this.box.min.z)
+          scale = scale / longestSide;
           this.el.setAttribute('scale', {
             x: scale,
             y: scale,
