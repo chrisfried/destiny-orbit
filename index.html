@@ -58,8 +58,11 @@
           });
         }
         if (this.box) {
-          this.target.setFromMatrixPosition(this.data.target.object3D.matrixWorld);
-          this.data.parent.setAttribute('position', {
+          var parent = this.data.parent;
+          var target = this.target;
+          var targetObject = this.data.target.object3D;
+          target.setFromMatrixPosition(targetObject.matrixWorld);
+          parent.setAttribute('position', {
             x: this.target.x,
             y: this.target.y,
             z: this.target.z
