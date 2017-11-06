@@ -36,7 +36,7 @@
         this.target = new THREE.Vector3();;
       },
       tick: function () {
-        if (this.el.getObject3D('mesh') && !this.box) {
+        if (!this.box && this.el.getObject3D('mesh')) {
           this.box = new THREE.Box3().setFromObject(this.el.getObject3D('mesh'));
           var scale = 1;
           var longestSide = Math.max(this.box.max.x - this.box.min.x, this.box.max.y - this.box.min.y, this.box.max.z - this.box.min.z)
