@@ -33,6 +33,7 @@
       },
       init: function () {
         this.box;
+        this.target;
       },
       tick: function () {
         if (this.el.getObject3D('mesh') && !this.box) {
@@ -60,11 +61,11 @@
           });
         }
         if (this.box) {
-          var target = this.data.target.object3D.getWorldPosition();
+          this.target = this.data.target.object3D.getWorldPosition();
           this.data.parent.setAttribute('position', {
-            x: target.x,
-            y: target.y,
-            z: target.z
+            x: this.target.x,
+            y: this.target.y,
+            z: this.target.z
           });;
         }
       }
@@ -80,12 +81,12 @@
       <a-entity class="destiny-model" center-zero="parent: .wrap; target: .half-meter"></a-entity>
     </a-entity>
 
-    <a-sky height="2048" radius="30" color="#AAAAAA" width="2048"></a-sky>
+    <a-sky height="2048" radius="30" color="#333333" width="2048"></a-sky>
 
     <a-entity camera look-controls>
-      <a-entity class="half-meter" position="0 0 -.6"></a-entity>
-      <a-entity light="intensity: 2; type: spot; target: .half-meter; cast-shadow: true" position=".5 .5  0"></a-entity>
-      <a-entity light="intensity: 1; type: point; cast-shadow: true" position="0 0 -1"></a-entity>
+      <a-entity class="half-meter" position="0 0 -.7"></a-entity>
+      <a-entity light="intensity: 4; type: point; target: .half-meter; cast-shadow: true" position=".5 .5  0"></a-entity>
+      <a-entity light="intensity: 2; type: point; cast-shadow: true" position="0 0 -1"></a-entity>
     </a-entity>
   </a-scene>
 
