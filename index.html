@@ -97,10 +97,12 @@
     var url = new URL(url_string);
     var game = url.searchParams.get('game') || 'destiny';;
     var itemHash = url.searchParams.get('itemHash') || 1170904292;
+    var shaderHash = url.searchParams.get('shaderHash') || 0;
     var el = document.querySelector('.destiny-model');
     el.setAttribute('destiny-model', {
       game: game,
-      itemHash: itemHash
+      itemHash: itemHash,
+      shaderHash: shaderHash
     });
 
     // Spinner
