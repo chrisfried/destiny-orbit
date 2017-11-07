@@ -99,6 +99,59 @@
     var itemHash = url.searchParams.get('itemHash') || 1170904292;
     var shaderHash = url.searchParams.get('shaderHash') || 0;
     var el = document.querySelector('.destiny-model');
+    console.log(shaderHash, game)
+    if (shaderHash === '-1' && game === 'destiny2') {
+      var d2shaders = [
+        3205869472,
+        3205869473,
+        3205869474,
+        3205869475,
+        3205869476,
+        3205869477,
+        3205869478,
+        3205869479,
+        3205869484,
+        3205869485,
+        16277432,
+        16277433,
+        864505614,
+        864505615,
+        1284563760,
+        1284563761,
+        1284563762,
+        1284563763,
+        1284563764,
+        1284563765,
+        1284563766,
+        1284563767,
+        1284563774,
+        1284563775,
+        1422712818,
+        1422712819,
+
+        2307426896,
+        2307426898,
+        2737886288,
+        2737886290,
+        3875413893,
+        4006192308,
+        4006192310,
+        4006192311,
+        223308216,
+        346878928,
+        346878930,
+        700322568,
+        700322570,
+        1045633725,
+        1045633727,
+        1206746476,
+        1206746478,
+        1841451177,
+        1841451179
+      ]
+      shaderHash = d2shaders[Math.floor(Math.random() * d2shaders.length)];
+      console.log(shaderHash)
+    } 
     el.setAttribute('destiny-model', {
       game: game,
       itemHash: itemHash,
