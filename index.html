@@ -72,7 +72,7 @@
       }
     });
   </script>
-  <script src="https://unpkg.com/aframe-destiny-model-component@1.0.2/dist/aframe-destiny-model-component.min.js" data-angle="aframe-destiny-model-component"></script>
+  <script src="https://unpkg.com/aframe-destiny-model-component@^1.0.x/dist/aframe-destiny-model-component.min.js" data-angle="aframe-destiny-model-component"></script>
 </head>
 
 <body>
@@ -87,9 +87,9 @@
 
     <a-entity camera look-controls>
       <a-entity class="half-meter" position="0 0 -.7"></a-entity>
-      <a-entity light="intensity: 1; type: point; target: .half-meter; cast-shadow: true" position="-1 1 .5"></a-entity>
-      <a-entity light="intensity: 1; type: point; cast-shadow: true" position="1 1 -1"></a-entity>
-      <a-entity light="intensity: .5; type: point; cast-shadow: true" position="1 0 .5"></a-entity>
+      <a-entity light="intensity: 1; type: directional; target: .half-meter; cast-shadow: true" position="-1 1 .5"></a-entity>
+      <a-entity light="intensity: 1; type: directional; target: .half-meter; cast-shadow: true" position="1 1 -1"></a-entity>
+      <a-entity light="intensity: .5; type: directional; target: .half-meter; cast-shadow: true" position="1 0 .5"></a-entity>
     </a-entity>
   </a-scene>
   
